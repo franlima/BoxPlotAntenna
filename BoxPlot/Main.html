@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="C:\Users\58035\Desktop\BoxPlot\Files\boxplot.css" />
+		<style type="text/css">
+			body {
+			 font: 100%/1.45 Georgia,serif;	
+			}
+			/* Header style */
+			h1 {
+				border-bottom:1px solid #222222;
+				border-top:1px solid #222222;
+				color:#222222;
+				font-size:65px;
+				font-weight:normal;
+				margin:0;
+				text-decoration:none;
+				text-shadow:3px 3px 3px #C0C0C0;
+			}
+			a {
+				color:#222222;
+				text-decoration:none;
+			}
+			#header {
+				text-align: center;
+				width: 823px;
+			}
+
+			#header h1 {
+				line-height:1.2;
+			}
+			#header h2 {
+				text-align: left;	
+				margin-top: 5px;
+			}
+
+			#back_link {
+				display: block;
+				margin-top: 265px;
+			}
+
+			#back_link:hover {
+				text-decoration: underline;	
+			}
+			/***************************************
+			* Positioning of the box plot containers
+			****************************************/
+			div.boxplot-container {
+				border: 1px solid #1111111;
+				padding-bottom: 30px;
+				position: absolute;
+				left: 100px;
+				top: 150px;
+			}
+
+			div#content2 {
+				left: 300px;
+			}
+		</style>
+		<script src="C:\Users\58035\Desktop\BoxPlot\Files\boxplot.js"></script>
+		<title>Box Plot Test</title>
+	</head>
+	<body>
+		<div id="header">
+			<h1>Information & Visualization</h1>
+			<h2>Box plot test</h2>
+		</div>
+		<div id="content" class="boxplot-container">
+		</div>
+		<div id="content2" class="boxplot-container">
+		</div>
+	</body>
+	<!-- creation of the example data -->
+	<script type="text/javascript">
+
+		var dataArray = new Array(8.37, 2.09, 0.41, 5.08, 2.4, 3.16, 4.59, 0.17, 0.41, 7.72, 15.2, 0.01);
+		createBoxPlot(dataArray, 200, "content");
+		var dataArray2 = new Array(18.37, 22.09, 30.41, 25.08, 22.4, 23.16, 34.59, 20.17, 30.41, 37.72, 15.2, 20.01);
+		createBoxPlot(dataArray2, 200, "content2");
+		
+	    var openFile = function(event) {
+			var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+		  var txtRead = parseINIString(text);
+        };
+        reader.readAsText(input.files[0]);
+		};
+	</script>
+	<input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <div id='output'></div>
+</html>
